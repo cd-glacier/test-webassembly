@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <title>test webassembly</title>
+  </head>
+
+  <body>
+    <h1>TEST WASM</h1>
+  </body>
+
+  <script>
+    fetch('module.wasm').then(response =>
+      response.arrayBuffer()
+    ).then(bytes =>
+      WebAssembly.instantiate(bytes, importObject)
+    ).then(results => {
+      // コンパイルされた結果(results)で何かする!
+    });
+  </script>
+</html>
