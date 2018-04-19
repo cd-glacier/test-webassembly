@@ -21,3 +21,8 @@ html-template-compile:
 html-template:
 	emrun --browser chrome $(output_dir)/hello2.html
 
+custom-func-compile:
+	emcc -o $(output_dir)/hello3.html $(src_dir)/custom-func/hello3.c -O3 -s WASM=1 --shell-file $(src_dir)/custom-func/shell_minimal.html -s NO_EXIT_RUNTIME=1 --emrun
+
+custom-func:
+	emrun --browser firefox $(output_dir)/hello3.html
