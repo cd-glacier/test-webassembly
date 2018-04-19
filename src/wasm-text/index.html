@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <title>call wasm</title>
+  </head>
+  <body>
+    <h1>Test call wasm</h1>
+  </body>
+  <script>
+    module = new WebAssembly.Module(Uint8Array.from(""));
+    imports = { 
+      my_alert: arg => { 
+        alert(arg);
+        return arg;
+      } 
+    };
+    instance = new WebAssembly.Instance(module, { imports });
+    instance.exports.add(3, 5);
+  </script>
+</html>
